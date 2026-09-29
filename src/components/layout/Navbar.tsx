@@ -4,7 +4,7 @@ import logo from "../../assets/logo.svg";
 import owner from "../../assets/owner.png";
 import { PendingApprovalBadge } from "../badges/PendingApprovalBadge";
 import { useRoleGuard } from "../../hooks/useRoleGuard";
-import { NotificationCentreDropdown } from "../notifications";
+import { DeferredNotificationCentreDropdown } from "../notifications";
 import { ThemeToggle } from "../theme-toggle";
 
 const baseNavLinks = [
@@ -87,7 +87,7 @@ export function Navbar() {
 
         <ThemeToggle />
 
-        <NotificationCentreDropdown />
+        <DeferredNotificationCentreDropdown />
 
         <div className="flex items-center gap-3 ml-2 cursor-pointer group">
           <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-100">
