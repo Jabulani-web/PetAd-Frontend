@@ -163,19 +163,19 @@ export default function ProfilePage() {
 
                     <div className="w-full flex flex-col">
                         <div className="py-4 border-b border-[#ECEFF3]">
-                            <p className="text-[16px] leading-5 text-[#98A1AF] mb-0.5">Full Name</p>
+                            <p className="text-[16px] leading-5 text-[#667085] mb-0.5">Full Name</p>
                             <p className="text-[16px] leading-8 font-semibold text-[#0D162B]">Angela Christoper</p>
                         </div>
                         <div className="py-4 border-b border-[#ECEFF3]">
-                            <p className="text-[16px] leading-5 text-[#98A1AF] mb-0.5">Email Address</p>
+                            <p className="text-[16px] leading-5 text-[#667085] mb-0.5">Email Address</p>
                             <p className="text-[16px] leading-8 font-semibold text-[#0D162B]">Angela@gmail.com</p>
                         </div>
                         <div className="py-4 border-b border-[#ECEFF3]">
-                            <p className="text-[16px] leading-5 text-[#98A1AF] mb-0.5">Phone Number</p>
+                            <p className="text-[16px] leading-5 text-[#667085] mb-0.5">Phone Number</p>
                             <p className="text-[16px] leading-8 font-semibold text-[#0D162B]">+234 903 123 1233</p>
                         </div>
                         <div className="py-4 border-b border-[#ECEFF3]">
-                            <p className="text-[16px] leading-5 text-[#98A1AF] mb-0.5">Location</p>
+                            <p className="text-[16px] leading-5 text-[#667085] mb-0.5">Location</p>
                             <p className="text-[16px] leading-8 font-semibold text-[#0D162B]">
                                 24 Just Street, Lekki, Lagos, Nigeria
                             </p>
@@ -235,10 +235,10 @@ export default function ProfilePage() {
                                                 </div>
                                                 <div className="min-w-0">
                                                     <h3 className="text-[16px] leading-8 font-bold text-[#0D162B]">{record.petName}</h3>
-                                                    <p className="text-[12px] leading-6 text-[#7A8495] mt-0.5">{record.petDescription}</p>
+                                                    <p className="text-[12px] leading-6 text-[#475467] mt-0.5">{record.petDescription}</p>
                                                 </div>
                                             </div>
-                                            <span className="text-[14px] leading-6 text-[#475467] md:justify-self-start">{record.dateReceived}</span>
+                                            <span className="text-[14px] leading-6 text-[#344054] md:justify-self-start">{record.dateReceived}</span>
                                             <button
                                                 type="button"
                                                 onClick={() => setAdoptionDetailsId(record.id)}
