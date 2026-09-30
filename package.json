@@ -9,7 +9,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run check:msw && tsc -b && vite build",
+    "check:msw": "node scripts/check-msw-production.mjs --mode production",
     "lint": "eslint .",
     "test": "vitest run",
     "preview": "vite preview",
