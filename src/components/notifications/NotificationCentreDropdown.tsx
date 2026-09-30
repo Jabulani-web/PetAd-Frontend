@@ -15,6 +15,7 @@ import { useMutateMarkAllRead } from "../../hooks/useMutateMarkAllRead";
 import { notificationRouter } from "../../lib/notificationRouter";
 import { useNotificationSocket } from "../../context/NotificationSocketContext";
 import type { Notification, NotificationsPage } from "../../types/notifications";
+import { useDialogFocus } from "../../hooks/useDialogFocus";
 
 
 const DROPDOWN_LIMIT = 20;
@@ -58,6 +59,7 @@ export function NotificationCentreDropdown({
 
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   const navigate = useNavigate();
@@ -91,6 +93,8 @@ export function NotificationCentreDropdown({
     triggerRef.current?.focus();
   }, []);
 
+  useDialogFocus(isOpen, dialogRef, close);
+
   const toggle = useCallback(() => {
     if (isOpen) close();
     else open();
@@ -108,21 +112,6 @@ export function NotificationCentreDropdown({
 
     document.addEventListener("mousedown", handleMouseDown);
     return () => document.removeEventListener("mousedown", handleMouseDown);
-  }, [isOpen, close]);
-
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.stopPropagation();
-        close();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, close]);
 
 
@@ -196,10 +185,12 @@ export function NotificationCentreDropdown({
       {/* Dropdown panel */}
       {isOpen && (
         <div
+          ref={dialogRef}
           id={dialogId}
           role="dialog"
           aria-label="Notifications"
           aria-modal="true"
+          tabIndex={-1}
           data-testid="notification-dropdown"
           className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white rounded-2xl shadow-xl border border-gray-100 z-[60] overflow-hidden"
         >
