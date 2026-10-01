@@ -14,6 +14,7 @@
     "check:msw": "node scripts/check-msw-production.mjs --mode production",
     "lint": "eslint .",
     "test": "vitest run",
+    "a11y:audit": "node --experimental-strip-types scripts/a11y-audit.ts",
     "preview": "vite preview",
     "e2e": "playwright test"
   },
@@ -37,6 +38,7 @@
     "zod": "^4.5.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.59.1",
     "@testing-library/dom": "^10.4.1",
