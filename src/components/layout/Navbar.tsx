@@ -6,6 +6,7 @@ import { PendingApprovalBadge } from "../badges/PendingApprovalBadge";
 import { useRoleGuard } from "../../hooks/useRoleGuard";
 import { DeferredNotificationCentreDropdown } from "../notifications";
 import { ThemeToggle } from "../theme-toggle";
+import { FreighterWalletButton } from "../wallet/FreighterWalletButton";
 
 const baseNavLinks = [
   { label: "Home", path: "/home", icon: House },
@@ -86,6 +87,8 @@ export function Navbar() {
         </Link>
 
         <ThemeToggle />
+
+        <FreighterWalletButton />
 
         <DeferredNotificationCentreDropdown />
 
