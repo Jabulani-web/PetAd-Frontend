@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useDialogFocus } from "../../hooks/useDialogFocus";
 
 interface AdoptionDetailsData {
     pet: {
@@ -39,6 +40,9 @@ export function AdoptionDetailsModal({
     onListerClick,
 }: AdoptionDetailsModalProps) {
     const [activeTab, setActiveTab] = useState<AdoptionTab>("pet");
+    const dialogRef = useRef<HTMLDivElement>(null);
+
+    useDialogFocus(isOpen, dialogRef, onClose);
 
     if (!isOpen) return null;
     if (!data) return null;
@@ -46,10 +50,12 @@ export function AdoptionDetailsModal({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
             <div
+                ref={dialogRef}
                 className="w-full max-w-[500px] bg-white rounded-xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="adoption-details-title"
+                tabIndex={-1}
             >
                 <div className="flex items-center justify-between px-9 pt-9 pb-6 shrink-0">
                     <h2 id="adoption-details-title" className="text-[36px] leading-[1.2] font-semibold text-[#0F2236]">
