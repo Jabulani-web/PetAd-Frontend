@@ -47,13 +47,16 @@ function DropdownSkeleton() {
 
 export interface NotificationCentreDropdownProps {
   hasUnread?: boolean;
+  /** Open the panel immediately when the deferred component is first mounted. */
+  initialOpen?: boolean;
 }
 
 
 export function NotificationCentreDropdown({
   hasUnread = false,
+  initialOpen = false,
 }: NotificationCentreDropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(initialOpen);
   const [focusedIndex, setFocusedIndex] = useState(-1);
 
   const containerRef = useRef<HTMLDivElement>(null);
