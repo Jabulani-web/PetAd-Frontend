@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5+-646CFF.svg)](https://vitejs.dev/)
 
-# PetAd Frontend 🐾
+#PetAd Frontend 🐾
 
 <!-- close #C15 -->
 <!-- Note: A13. Add sort-by-date and sort-by-status controls to Approval list documentation reference placeholder -->
@@ -16,8 +16,7 @@
 A modern, responsive web application for pet adoption and temporary custody management, powered by blockchain-backed trust guarantees (Stellar trust layer integration).
 
 ***
-
-## Overview
+##Overview
 
 PetAd Frontend is the client-side application for the PetAd platform, enabling users to browse pets, initiate adoption processes, and manage temporary custody arrangements. The application communicates exclusively with the PetAd backend API and does not directly interact with blockchain infrastructure.
 
