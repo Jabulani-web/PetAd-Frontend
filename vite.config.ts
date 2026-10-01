@@ -3,6 +3,7 @@ import type { Plugin } from "vite";
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
 // MSW is dev/test-only: main.tsx guards the worker import behind DEV && VITE_MSW ===
 // 'true' so the bundler tree-shakes src/mocks/** out of production. Keep MSW out of
@@ -21,7 +22,7 @@ const mswPlugin = (): Plugin => ({
 });
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   server: {
     host: "localhost",
     port: 4321,
@@ -32,7 +33,22 @@ export default defineConfig({
       protocol: "ws",
     },
   },
-  plugins: [react(), tailwindcss(), mswPlugin()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    mswPlugin(),
+    ...(mode === "analyze"
+      ? [
+          visualizer({
+            filename: "dist/bundle-stats.html",
+            template: "treemap",
+            gzipSize: true,
+            brotliSize: true,
+            open: false,
+          }),
+        ]
+      : []),
+  ],
   build: {
     rollupOptions: {
       output: {
@@ -50,4 +66,4 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     exclude: ["e2e/**", "node_modules/**", "dist/**"],
   },
-});
+}));
