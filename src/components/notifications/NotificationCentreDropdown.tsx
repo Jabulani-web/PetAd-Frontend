@@ -75,6 +75,7 @@ export function NotificationCentreDropdown({
     queryKey: ["notifications", "dropdown"],
     queryFn: fetchDropdownNotifications,
     enabled: isOpen,
+    // Notifications may arrive while the menu is open, so use a short freshness window.
     staleTime: 30_000,
   });
 
